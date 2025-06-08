@@ -583,4 +583,14 @@ a:hover {
     .info-card {
         padding: 20px;
     }
+    .before-fade {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
 }
