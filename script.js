@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Basic typing animation for hero section sub-text
+    // Typing animation
     const subTextElement = document.querySelector('.hero-section .animated-subtext');
     const textToType = subTextElement.textContent;
     subTextElement.textContent = ''; // Clear initial text
@@ -14,37 +14,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     typeWriter();
 
-    // Simple scroll animation for sections (fade in)
+    // Scroll animation with fade-in class
     const sections = document.querySelectorAll('.section');
 
     const observerOptions = {
-        root: null, // viewport
+        root: null,
         rootMargin: '0px',
-        threshold: 0.1 // When 10% of the section is visible
+        threshold: 0.1
     };
 
     const sectionObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                entry.target.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-                observer.unobserve(entry.target); // Stop observing once animated
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
     sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(50px)';
+        section.classList.add('before-fade');
         sectionObserver.observe(section);
     });
 
-    // Smooth scrolling for anchor links
+    // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
             });
