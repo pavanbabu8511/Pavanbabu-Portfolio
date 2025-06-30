@@ -47,3 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Clear form when navigating back to the page
+window.addEventListener("pageshow", function(event) {
+    if (event.persisted) {
+        const form = document.querySelector(".contact-form");
+        if (form) {
+            form.reset();
+        }
+    }
+});
