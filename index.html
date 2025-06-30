@@ -186,13 +186,14 @@
         <section id="contact" class="section contact-section">
             <div class="container">
                 <h2>Get in Touch</h2>
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <input type="text" placeholder="Subject">
-                    <textarea placeholder="Your Message" rows="5"></textarea>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
+                 <form class="contact-form" action="https://formspree.io/f/xrbkjapr" method="POST">
+                   <input type="text" name="name" placeholder="Your Name" required>
+                   <input type="email" name="_replyto" placeholder="Your Email" required>
+                   <input type="text" name="subject" placeholder="Subject">
+                   <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                   <button type="submit" class="btn">Send Message</button>
+                 </form>
+
                 <div class="contact-info">
                     <p>Email: <a href="mailto:Pavanbabupappoppula@gmail.com">Pavanbabupappoppula@gmail.com</a></p>
                     <p>Phone: <a href="tel:+919110577403">+91 9110577403</a></p>
