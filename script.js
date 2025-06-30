@@ -2,14 +2,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Typing animation
     const subTextElement = document.querySelector('.hero-section .animated-subtext');
     const textToType = subTextElement.textContent;
-    subTextElement.textContent = ''; // Clear initial text
+    subTextElement.textContent = '';
 
     let i = 0;
     function typeWriter() {
         if (i < textToType.length) {
             subTextElement.textContent += textToType.charAt(i);
             i++;
-            setTimeout(typeWriter, 50); // Typing speed
+            setTimeout(typeWriter, 50);
         }
     }
     typeWriter();
@@ -48,12 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Clear form when navigating back to the page
+// This ensures the form resets when coming back with Back/Forward cache
 window.addEventListener("pageshow", function(event) {
-    if (event.persisted) {
-        const form = document.querySelector(".contact-form");
-        if (form) {
-            form.reset();
-        }
+    const form = document.querySelector(".contact-form");
+    if (form) {
+        console.log("Pageshow triggered. Persisted:", event.persisted);
+        form.reset();
     }
 });
